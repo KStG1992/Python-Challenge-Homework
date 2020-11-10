@@ -24,14 +24,16 @@ with open(csvpath, 'r') as csvfile:
 ### Calculating total number of months
 totalMonths = len(Data)
 
-### Calculating net profit/loss (Condense Loop)
-for row in Profit:
-    netProfit += int(row)
+### Setting Variables to Zero
+netProfit = 0 # Total Net Profit
+greatInc = 0 # Greatest Increase 
+greatDec = 0 # Greatet Decrease
 
-### Calculating Greatest Profit Increase/Decrease
-greatInc = 0
-greatDec = 0
-for i in range(len(Profit)- 1): #think about later
+for i in range(totalMonths): # Setting Range to totalMonths Since Data and Profit are Same Length
+### Calculating Total Net Profit
+    netProfit = netProfit + int(Profit[i])
+
+### Calculating Greatest Profit Increase/Decrease    
     initial = Profit[i-1]
     final = Profit[i]
     change = int(final) - int(initial)
@@ -56,4 +58,16 @@ print(f'Total: ${netProfit}')
 print(f'Average Change: {AvgChange}')
 print(f'Greatest Increase in Profits: {IncDate} ({greatInc})')
 print(f'Greatest Decrease in Profits: {DecDate} ({greatDec})')
+
+### Creating Text File
+txtpath = os.path.join('..', 'PyBank','Resources','budget_data_results.txt')
+
+with open(txtpath, 'w') as text:
+    text.write('Financial Analysis \n')
+    text.write('----------------------------\n')
+    text.write(f'Total Months: {totalMonths}\n')
+    text.write(f'Total: ${netProfit}\n')
+    text.write(f'Average Change: {AvgChange}\n')
+    text.write(f'Greatest Increase in Profits: {IncDate} ({greatInc})\n')
+    text.write(f'Greatest Decrease in Profits: {DecDate} ({greatDec})\n')
 
