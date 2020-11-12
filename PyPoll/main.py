@@ -8,7 +8,7 @@ csvpath = os.path.join('..', 'PyPoll','Resources','election_data.csv')
 ### Opening CSV File
 with open(csvpath, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter= ',')
-    next(csvreader, None) #Iterating Over Header
+    header = next(csvreader, None) #Iterating Over Header
     
 ### Creating Arrays    
     voterID = []
