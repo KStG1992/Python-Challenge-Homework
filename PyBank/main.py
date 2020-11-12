@@ -1,3 +1,4 @@
+### Importing Modules
 import os
 import csv
 
@@ -57,10 +58,10 @@ print(f'Total Months: {totalMonths}')
 print(f'Total: ${netProfit}')
 print(f'Average Change: {AvgChange}')
 print(f'Greatest Increase in Profits: {IncDate} ({greatInc})')
-print(f'Greatest Decrease in Profits: {DecDate} ({greatDec})')
+print(f'Greatest Decrease in Profits: {DecDate} ({greatDec})\n')
 
 ### Creating Text File
-txtpath = os.path.join('..', 'PyBank','Resources','budget_data_results.txt')
+txtpath = os.path.join('..', 'PyBank','Analysis','budget_data_results.txt')
 
 with open(txtpath, 'w') as text:
     text.write('Financial Analysis \n')
@@ -71,3 +72,4 @@ with open(txtpath, 'w') as text:
     text.write(f'Greatest Increase in Profits: {IncDate} ({greatInc})\n')
     text.write(f'Greatest Decrease in Profits: {DecDate} ({greatDec})\n')
 
+print(f'A Text File with the Results has been Exported to: {txtpath}')
