@@ -94,7 +94,7 @@ def electionAnalysis(electionCSV, candidate1, candidate2, candidate3, candidate4
     print(f'A Text File with the Results has been Exported to: {txtpath}')
 
 ### Prompting the User to Input the Town's Election CSV File
-print("Input the Company's Budget CSV File")
+print("Input the Town's Election CSV File")
 x = input()
 print("Input Candidate 1.")
 x1 = input()
